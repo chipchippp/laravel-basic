@@ -109,7 +109,7 @@ class FoodsController extends Controller
     public function destroy($id){
         $food = Food::find($id);
         $food -> delete();
-        dd($id);
+//        dd($id);
        return redirect('/foods');
     }
 
