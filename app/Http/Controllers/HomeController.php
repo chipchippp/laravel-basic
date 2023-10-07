@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\ProductFilter;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -53,5 +54,23 @@ class HomeController extends Controller
     public function detail($productName ,$id){
         return "product name = " .$productName.
             " ,product id = " .$id;
+    }
+
+
+    public function index()
+    {
+        $products = ProductFilter::all();
+        return view('pages.sort_price', compact('products'));
+    }
+
+    public function filterProducts(Request $request)
+    {
+        $minPrice = $request->input('minPrice');
+        $maxPrice = $request->input('maxPrice');
+
+        // Lọc sản phẩm theo khoảng giá
+        $filteredProducts = ProductFilter::whereBetween('price', [$minPrice, $maxPrice])->get();
+
+        return response()->json(['products' => $filteredProducts]);
     }
 }

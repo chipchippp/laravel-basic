@@ -16,5 +16,4 @@
             <div class="col-md-12 my-5 text-center">
                 <h2>Nothing Found</h2>
             </div>
-            <div>
 @endif

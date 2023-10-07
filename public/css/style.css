@@ -13,7 +13,7 @@
 
 .middle {
     position: relative;
-    width: 100%;
+    width: 50%;
     max-width: 500px;
     margin-top: 10px;
     display: inline-block;
@@ -51,10 +51,10 @@
 .slider>.thumb {
     position: absolute;
     z-index: 3;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     background-color: #27a0ff;
-    border-radius: 50%;
+    border-radius: 30%;
 }
 
 .slider>.thumb.left {
