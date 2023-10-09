@@ -37,4 +37,7 @@ Route::get('/sort', [\App\Http\Controllers\HomeController::class, 'sort']);
 Route::post('/filter-products', [\App\Http\Controllers\HomeController::class, 'filterProducts']);
 
 
+Route::get('/category', [\App\Http\Controllers\HomeController::class,"categoryShop"]);
+Route::get('/category/{category:slug}', [\App\Http\Controllers\HomeController::class,"category"]);
+
 

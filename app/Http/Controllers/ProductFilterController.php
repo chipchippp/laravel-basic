@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Product;
 use App\Models\ProductFilter;
 use Illuminate\Http\Request;
 
@@ -30,5 +32,14 @@ class ProductFilterController extends Controller
         }
         return view('pages.search_result',compact('all_products'))->render();
 
+    }
+    public function categoryShop(){
+        $products = Product::orderBy("created_at", "desc")->paginate(12);
+        return view("pages.customer.categoryShop", compact("products"));
+    }
+    public function category(Category $category){
+        $products = Product::where("category_id", $category-> id)
+            ->orderBy("created_at", "desc")->paginate(12);
+        return view("pages.customer.category", compact("products"))->render();
     }
 }
