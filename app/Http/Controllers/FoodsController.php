@@ -75,7 +75,7 @@ class FoodsController extends Controller
             'name' => $request->input('name'),
             'count' => $request->input('count'),
             'description' => $request->input('description'),
-            'category_id' => $request->input('category_id'),
+//            'category_id' => $request->input('category_id'),
             'image_path' => $generatedImageName
         ]);
         $food->save();
